@@ -8,11 +8,12 @@ fetch('https://restcountries.com/v3.1/all')
   console.log(responseJson)
   countriesData = responseJson
 
-  for (let index = 200; index < 250; index++) {
+  for (let index = 1; index < 250; index++) {
     rootElement.insertAdjacentHTML('beforeend',`
     <div class="card">
     <h2>${countriesData[index].name.common}</h2>
     <h3>${countriesData[index].population}</h3>
+    <h4>${countriesData[index].area}</h4>
     </div>
     `)
   }
