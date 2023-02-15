@@ -1,0 +1,19 @@
+let countriesData = []
+
+const rootElement = document.querySelector('#root')
+
+fetch('https://restcountries.com/v3.1/all')
+.then(response => response.json())
+.then(responseJson => {
+  console.log(responseJson)
+  countriesData = responseJson
+
+  for (let index = 200; index < 250; index++) {
+    rootElement.insertAdjacentHTML('beforeend',`
+    <div class="card">
+    <h2>${countriesData[index].name.common}</h2>
+    <h3>${countriesData[index].population}</h3>
+    </div>
+    `)
+  }
+})
